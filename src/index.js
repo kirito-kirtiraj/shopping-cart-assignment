@@ -1,3 +1,5 @@
-import "./styles.scss";
+import headerSetup from "./components/Header";
 
-console.log("Loaded");
+import "./styles/main.scss";
+
+headerSetup();
