@@ -6,7 +6,7 @@ class APICall {
     static async getData(endpoint) {
         try {
             const response = await axios.get(`${URL}${endpoint}`);
-            const data = await response.json();
+            const data = response.data;
             return data;
         } catch (error) {
             console.log(error);

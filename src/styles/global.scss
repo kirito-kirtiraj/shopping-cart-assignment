@@ -9,6 +9,11 @@ $breakpoints: (
 $primary-color: maroon;
 $dark-color: #484848;
 
+body {
+    color: $dark-color;
+    line-height: 1.4;
+}
+
 .container {
     margin: auto;
     max-width: calc(100vw - 40px);
