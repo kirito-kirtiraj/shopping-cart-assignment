@@ -16,6 +16,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, "./dist"),
         index: "index.html",
         port: 9000,
+        hot: true,
     },
     module: {
         rules: [
