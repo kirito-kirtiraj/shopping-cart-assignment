@@ -1,0 +1,38 @@
+.products-list {
+    flex: 0.8;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 40px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    &__image {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    &__footer {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    &__buy-button {
+        padding: 10px 15px;
+        background-color: maroon;
+        color: #fff;
+    }
+
+    &__description {
+        background-color: rgba($color: #c5c5c5, $alpha: 0.5);
+        padding: 5px;
+        margin-bottom: 20px;
+    }
+}

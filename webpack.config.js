@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: { home: "./src/index.js" },
+    entry: { home: "./src/pages/index.js", products: "./src/pages/products" },
     output: {
         filename: "bundle.[contenthash].js",
         path: path.resolve(__dirname, "./dist"),
@@ -58,6 +58,13 @@ module.exports = {
             chunks: ["home"],
             title: "Sabka Bazaar",
             description: "Your own bazaar",
+            template: "src/index.hbs",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "products",
+            chunks: ["products"],
+            title: "Products | Sabka Bazaar",
+            description: "Buy products online on sabka bazaar",
             template: "src/index.hbs",
         }),
         new MiniCssExtractPlugin({

@@ -9,7 +9,7 @@ const createCategorySection = (
     const categoryElement = document.createElement("section");
     categoryElement.setAttribute(
         "class",
-        `container category ${!imageFirst && "category--alternate"}`
+        `category ${!imageFirst && "category--alternate"}`
     );
 
     const imgHTML = `<img class="category__image" src="${buildImgUrl(

@@ -1,9 +1,9 @@
-import "./styles/main.scss";
+import "../styles/main.scss";
 
-import headerSetup from "./components/Header";
-import createCategorySection from "./components/Category";
-import { startSpinner, stopSpinner } from "./components/LoadingSpinner";
-import APICall from "./APIs/API";
+import headerSetup from "../components/Header";
+import createCategorySection from "../components/Category";
+import { startSpinner, stopSpinner } from "../components/LoadingSpinner";
+import APICall from "../APIs/API";
 
 headerSetup();
 

@@ -1,0 +1,14 @@
+.product-sidebar {
+    flex: 0.2;
+    background-color: rgba($color: #c5c5c5, $alpha: 0.5);
+
+    &__item {
+        padding: 10px 20px;
+        border-bottom: 3px solid rgba($color: #c5c5c5, $alpha: 0.8);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($color: #c5c5c5, $alpha: 0.8);
+        }
+    }
+}
