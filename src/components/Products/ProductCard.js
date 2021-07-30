@@ -13,7 +13,7 @@ const createProductCard = ({
     const card = document.createElement("div");
     card.setAttribute("class", "product-card");
     card.setAttribute("id", id);
-    card.setAttribute("data-category", category);
+    card.setAttribute("data-categoryid", category);
 
     const cardHTML = `
         <h4 class="text-lg text-bold">${name}</h4>

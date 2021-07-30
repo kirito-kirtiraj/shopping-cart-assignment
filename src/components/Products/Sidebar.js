@@ -1,25 +1,26 @@
 import "./Sidebar.scss";
 
-const createSidebar = (categories) => {
+const createSidebar = (categories, filterAndRefresh) => {
     const sidebarElement = document.createElement("aside");
     sidebarElement.setAttribute("class", "product-sidebar");
 
-    const sidebarItem = document.createElement("p");
-    sidebarItem.setAttribute("class", "text-sm product-sidebar__item");
-    sidebarItem.setAttribute("id", "all");
-    sidebarItem.textContent = "All";
-
-    categories.map((category) => {
-        if (!category.enabled) return false;
-
+    const appendSidebarItem = (id, name) => {
         const sidebarItem = document.createElement("p");
         sidebarItem.setAttribute(
             "class",
             "text-sm text-medium product-sidebar__item"
         );
-        sidebarItem.setAttribute("id", category.id);
-        sidebarItem.textContent = category.name;
+        sidebarItem.setAttribute("id", id);
+        sidebarItem.textContent = name;
+        sidebarItem.onclick = () => filterAndRefresh(id);
         sidebarElement.appendChild(sidebarItem);
+    };
+
+    appendSidebarItem("all", "All");
+
+    categories.map((category) => {
+        if (!category.enabled) return false;
+        appendSidebarItem(category.id, category.name);
     });
 
     return sidebarElement;

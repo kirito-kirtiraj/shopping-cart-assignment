@@ -7,7 +7,8 @@
         border-bottom: 3px solid rgba($color: #c5c5c5, $alpha: 0.8);
         cursor: pointer;
 
-        &:hover {
+        &:hover,
+        &--active {
             background-color: rgba($color: #c5c5c5, $alpha: 0.8);
         }
     }
