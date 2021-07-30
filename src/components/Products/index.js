@@ -2,6 +2,7 @@ import { startSpinner, stopSpinner } from "../LoadingSpinner";
 import createProductCard from "./ProductCard";
 import createSidebar from "./Sidebar";
 import APICall from "../../APIs/API";
+import { getQueryParams } from "../../utils/searchQueryParams";
 
 import "./Products.scss";
 
@@ -13,6 +14,7 @@ const setupProductsPage = () => {
     const productsPage = document.createElement("div");
     productsPage.setAttribute("class", "products-page");
     main.appendChild(productsPage);
+    startSpinner(main);
 
     const filterAndRefresh = (categoryID) => {
         let filteredProducts = [];
@@ -38,6 +40,7 @@ const setupProductsPage = () => {
             productsPage.appendChild(sidebar);
         })
         .then(() => {
+            stopSpinner();
             const productsList = document.createElement("div");
             productsList.setAttribute("class", "products-list");
             productsPage.appendChild(productsList);
@@ -49,7 +52,9 @@ const setupProductsPage = () => {
                     if (!product.stock) return false;
                     productCards.push(createProductCard(product));
                 });
-                filterAndRefresh("all");
+
+                const { id } = getQueryParams(location.href, ["id"]);
+                id ? filterAndRefresh(id) : filterAndRefresh("all");
             });
         });
 };

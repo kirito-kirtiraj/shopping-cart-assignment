@@ -1,10 +1,11 @@
 import buildImgUrl from "../utils/buildImgUrl";
+import { buildUrlWithParams } from "../utils/searchQueryParams";
 
 import "./Category.scss";
 
 const createCategorySection = (
     imageFirst,
-    { imageUrl, name, description, key }
+    { imageUrl, name, description, key, id }
 ) => {
     const categoryElement = document.createElement("section");
     categoryElement.setAttribute(
@@ -20,7 +21,10 @@ const createCategorySection = (
             <div class="category__info">
                 <h3 class="text-xl text-bold category__title">${name}</h3>
                 <p class="text-md text-medium category__description">${description}</p>
-                <a class="category__button" href="${key}">Explore ${name}</a>
+                <a class="category__button" href="${buildUrlWithParams(
+                    "/products",
+                    { key, id }
+                )}">Explore ${name}</a>
             </div>
         `;
 
