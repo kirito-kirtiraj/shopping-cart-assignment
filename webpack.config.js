@@ -5,7 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: { home: "./src/pages/index.js", products: "./src/pages/products" },
+    entry: {
+        home: "./src/pages/index.js",
+        products: "./src/pages/products",
+    },
     output: {
         filename: "bundle.[contenthash].js",
         path: path.resolve(__dirname, "./dist"),

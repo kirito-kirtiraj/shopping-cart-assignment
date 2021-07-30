@@ -1,4 +1,8 @@
 import buildImgUrl from "../../utils/buildImgUrl";
+import {
+    saveObjectToLocalStorage,
+    getObjectFromLocalStorage,
+} from "../../utils/useLocalStorage";
 
 import "./ProductCard.scss";
 
@@ -29,7 +33,14 @@ const createProductCard = ({
     card.innerHTML = cardHTML;
     const button = card.querySelector("button");
     button.onclick = () => {
-        console.log(id);
+        const product = { name, imageURL, description, price, category, id };
+        let cart = getObjectFromLocalStorage("cart");
+        if (cart) {
+            cart.push({ name, imageURL, description, price, category, id });
+        } else {
+            cart = [product];
+        }
+        saveObjectToLocalStorage("cart", cart);
     };
 
     return card;
