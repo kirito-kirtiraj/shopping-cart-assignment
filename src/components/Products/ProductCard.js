@@ -3,6 +3,7 @@ import {
     saveObjectToLocalStorage,
     getObjectFromLocalStorage,
 } from "../../utils/useLocalStorage";
+import cartUpdatedEvent from "../../utils/cartUpdatedEvent";
 
 import "./ProductCard.scss";
 
@@ -31,16 +32,18 @@ const createProductCard = ({
         </div>
     `;
     card.innerHTML = cardHTML;
+
     const button = card.querySelector("button");
     button.onclick = () => {
         const product = { name, imageURL, description, price, category, id };
         let cart = getObjectFromLocalStorage("cart");
         if (cart) {
-            cart.push({ name, imageURL, description, price, category, id });
+            cart.push(product);
         } else {
             cart = [product];
         }
         saveObjectToLocalStorage("cart", cart);
+        cartUpdatedEvent();
     };
 
     return card;
