@@ -1,10 +1,15 @@
 .cart {
-    padding-bottom: 20px;
     background-color: #c5c5c5;
     max-width: 560px;
     max-height: 80vh;
     overflow-y: scroll;
     margin: auto;
+
+    @media (max-width: 900px) {
+        max-width: unset;
+        max-height: unset;
+        height: 100vh;
+    }
 
     &__header {
         background-color: rgb(37, 37, 37);
@@ -38,7 +43,6 @@
 
     &-card {
         display: flex;
-        // justify-content: space-between;
         align-items: center;
         padding: 10px;
         margin-top: 10px;
@@ -52,6 +56,38 @@
         &__price {
             flex: 1;
             text-align: right;
+        }
+
+        &__quantity {
+            display: flex;
+            margin-top: 10px;
+            &-minus-button,
+            &-plus-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: maroon;
+                color: #fff;
+                width: 25px;
+                height: 25px;
+                border: none;
+                cursor: pointer;
+                text-align: center;
+
+                &--disabled {
+                    background-color: gray;
+                    cursor: not-allowed;
+                }
+            }
+
+            &-text {
+                margin: 0 15px;
+            }
+        }
+
+        &__mrp {
+            flex: 1;
+            padding-left: 15px;
         }
     }
 
@@ -68,9 +104,24 @@
         &--open {
             display: block;
         }
+
+        @media (max-width: 900px) {
+            padding: 0;
+        }
     }
 
     &__no-items {
         text-align: center;
+        padding-bottom: 40px;
+    }
+
+    &__checkout {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: rgb(255, 81, 0);
+        color: #fff;
+        cursor: pointer;
     }
 }

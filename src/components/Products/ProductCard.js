@@ -28,17 +28,26 @@ const createProductCard = ({
         <p class="text-sm product-card__description">${description}</p>
         <div class="product-card__footer">
             <p class="text-lg product-card__price">MRP Rs.${price}</p>
-            <button class="text-md product-card__buy-button">Buy Now</button>
+            <button class="text-md product-card__buy-button">Add to cart</button>
         </div>
     `;
     card.innerHTML = cardHTML;
 
     const button = card.querySelector("button");
     button.onclick = () => {
-        const product = { name, imageURL, description, price, category, id };
+        const product = {
+            name,
+            imageURL,
+            description,
+            price,
+            category,
+            id,
+            quantity: 1,
+        };
         let cart = getObjectFromLocalStorage("cart");
         if (cart) {
-            cart.push(product);
+            const inCart = cart.find((item) => item.id === id);
+            !inCart && cart.push(product);
         } else {
             cart = [product];
         }
