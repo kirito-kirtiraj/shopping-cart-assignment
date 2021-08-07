@@ -8,6 +8,8 @@ module.exports = {
     entry: {
         home: "./src/pages/index.js",
         products: "./src/pages/products",
+        login: "./src/pages/login",
+        register: "./src/pages/register",
     },
     output: {
         filename: "bundle.[contenthash].js",
@@ -68,6 +70,20 @@ module.exports = {
             chunks: ["products"],
             title: "Products | Sabka Bazaar",
             description: "Buy products online on sabka bazaar",
+            template: "src/index.hbs",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "login",
+            chunks: ["login"],
+            title: "Login | Sabka Bazaar",
+            description: "Login on sabka bazaar",
+            template: "src/index.hbs",
+        }),
+        new HtmlWebpackPlugin({
+            filename: "register",
+            chunks: ["register"],
+            title: "Register | Sabka Bazaar",
+            description: "Register on sabka bazaar",
             template: "src/index.hbs",
         }),
         new MiniCssExtractPlugin({

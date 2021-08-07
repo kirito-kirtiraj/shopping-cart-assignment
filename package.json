@@ -14,6 +14,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@splidejs/splide": "^2.4.21",
     "axios": "^0.21.1",
     "canned": "^0.3.13",
     "live-server": "^1.2.1"
