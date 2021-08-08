@@ -1,0 +1,36 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+
+    &__input {
+        border: none;
+        border-bottom: 2px solid #484848;
+        padding: 10px;
+        padding-top: 0;
+        margin-bottom: 30px;
+
+        &::placeholder {
+            color: #484848;
+            font-size: 16px;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: rgb(0, 183, 255);
+
+            &::placeholder {
+                color: rgb(0, 183, 255);
+            }
+        }
+    }
+
+    &__submit {
+        padding: 15px;
+        background-color: maroon;
+        color: #fff;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+}

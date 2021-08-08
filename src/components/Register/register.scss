@@ -1,0 +1,22 @@
+main {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 15vh;
+    min-height: unset;
+}
+
+.register {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    width: 80%;
+
+    @media (max-width: 900px) {
+        width: 100%;
+    }
+
+    @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
